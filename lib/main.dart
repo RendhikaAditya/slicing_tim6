@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/fill_profile/fill_profile.dart';
 import 'package:slicing_tim6/forgot_password/forgot_password.dart';
 import 'package:slicing_tim6/splashscreen/launchingPage.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ForgotPassword(),
+      home: FillProfile(),
       debugShowCheckedModeBanner: false,
     );
   }
