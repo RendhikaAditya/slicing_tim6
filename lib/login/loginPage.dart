@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/forgot_password/forgot_password.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -25,6 +26,22 @@ class LoginPage extends StatelessWidget {
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    // Navigasi ke halaman lupa password saat teks ditekan
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ForgotPassword()), // Ganti dengan halaman yang sesuai
+                    );
+                  },
+                  child: Text('Forgot Password?'),
+                ),
+              ],
             ),
             SizedBox(height: 20),
             ElevatedButton(

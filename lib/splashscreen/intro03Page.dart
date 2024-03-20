@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:slicing_tim6/login/loginPage.dart';
+import 'package:slicing_tim6/login/letsyouin.dart';
+
 
 
 class SplashScreenIntro03 extends StatelessWidget {
@@ -15,7 +16,7 @@ class SplashScreenIntro03 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Get Online Certificate",
+                  "Learn from Anytime",
                   style: TextStyle(
                     fontFamily: 'Jost',
                     fontSize: 24,
@@ -25,7 +26,7 @@ class SplashScreenIntro03 extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "Analyse your scores and Track your results",
+                  "Booked or Same the Lectures for Future",
                   style: TextStyle(
                     fontFamily: 'Mulish',
                     fontSize: 14,
@@ -62,8 +63,9 @@ class SplashScreenIntro03 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => LetsYouIn()),
                 );
+              
                 // Handle back button action
               },
               child: Container(
@@ -79,6 +81,44 @@ class SplashScreenIntro03 extends StatelessWidget {
                   size: 27.3,
                 ),
               ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 16,
+            child: Row(
+              children: [
+               
+                Container(
+                  margin: EdgeInsets.only(right: 8),
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.grey,
+                  ),
+                ),
+                
+                Container(
+                  margin: EdgeInsets.only(right: 8),
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.grey,
+                  ),
+                ),
+                 Container(
+                  margin: EdgeInsets.only(right: 8),
+                  width: 20,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: borderRadius, // Menggunakan objek BorderRadius.circular yang telah diinisialisasi
+                    color: Colors.blue,
+                  ),
+                ),
+              ],
             ),
           ),
           
