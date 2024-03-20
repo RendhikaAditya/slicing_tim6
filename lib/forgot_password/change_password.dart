@@ -22,16 +22,6 @@ class _ChangePasswordState extends State<ChangePassword> {
   TextEditingController newPassword = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    // Setelah 2 detik, panggil fungsi untuk mengubah nilai 'visible'
-    Timer(Duration(seconds: 2), () {
-      setState(() {
-        visible = !visible;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,11 +79,25 @@ class _ChangePasswordState extends State<ChangePassword> {
                           image: 'assets/images/image_dialog_change_password.png',
                           title: 'Congratulations',
                           deskripsi: 'Your Account is Ready to Use. You will be redirected to the Home Page in a Few Seconds.',
-                          showLoadingIndicator: visible,
-                          showOkayButton: !visible
+                          visible: visible,
                         );
+                        Future.delayed(Duration(seconds: 2), () {
+                          setState(() {
+                            visible = false;
+                          });
+
+                          Navigator.of(context).pop();
+                          CustomDialog.showCustomDialog(
+                            navigatorContext: context,
+                            image: 'assets/images/image_dialog_change_password.png',
+                            title: 'Congratulations',
+                            deskripsi: 'Your Account is Ready to Use. You will be redirected to the Home Page in a Few Seconds.',
+                            visible: visible,
+                          );
+                        });
                       },
                     ),
+
                     SizedBox(height: 150,),
 
                   ]
@@ -103,5 +107,6 @@ class _ChangePasswordState extends State<ChangePassword> {
         ),
       ),
     );
+
   }
 }

@@ -9,9 +9,9 @@ class CustomDialog {
     required String image,
     required String title,
     required String deskripsi,
-    required bool showLoadingIndicator,
-    required bool showOkayButton,
+    required bool visible, // Ubah nama parameter menjadi visible
   }) async {
+    print(visible);
     return showDialog<void>(
       context: navigatorContext,
       barrierDismissible: false,
@@ -48,12 +48,12 @@ class CustomDialog {
                 ),
                 SizedBox(height: 20),
                 Visibility(
-                  visible: showLoadingIndicator,
+                  visible: visible, // Gunakan parameter visible di sini
                   child: CircularProgressIndicator(),
                 ), // Loading indicator
                 SizedBox(height: 20),
                 Visibility(
-                  visible: showOkayButton,
+                  visible: !visible, // Gunakan parameter visible di sini
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pop();

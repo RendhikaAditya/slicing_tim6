@@ -16,7 +16,7 @@ class SplashScreenIntro03 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Learn from Anytime",
+                  "Get Online Certificate",
                   style: TextStyle(
                     fontFamily: 'Jost',
                     fontSize: 24,
@@ -26,7 +26,7 @@ class SplashScreenIntro03 extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "Booked or Same the Lectures for Future",
+                  "Analyse your scores and Track your results",
                   style: TextStyle(
                     fontFamily: 'Mulish',
                     fontSize: 14,
@@ -65,7 +65,7 @@ class SplashScreenIntro03 extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (context) => LetsYouIn()),
                 );
-              
+
                 // Handle back button action
               },
               child: Container(
