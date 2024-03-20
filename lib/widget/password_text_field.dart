@@ -23,7 +23,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.grey),
+        border: Border.all(color: Colors.white10, width: 0),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextFormField(
@@ -32,14 +32,14 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: widget.hintText,
-          prefixIcon: Icon(Icons.lock),
+          prefixIcon: Icon(Icons.lock_outline),
           suffixIcon: GestureDetector(
             onTap: () {
               setState(() {
                 _obscureText = !_obscureText;
               });
             },
-            child: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
+            child: Icon(_obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined),
           ),
         ),
       ),

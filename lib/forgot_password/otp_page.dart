@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/forgot_password/change_password.dart';
 
 import '../widget/custom_button.dart';
 import '../widget/password_text_field.dart';
@@ -133,7 +134,7 @@ class _OtpPageState extends State<OtpPage> {
                     CustomButton(
                       text: 'Verify',
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangePassword()));
                       },
                     ),
 
