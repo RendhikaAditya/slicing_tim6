@@ -26,17 +26,17 @@ class SplashScreen extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Image.asset(
-                'images/shape.png', // Path gambar pertama
+                'assets/images/shape.png', // Path gambar pertama
                 width: 430, // Lebar gambar pertama
                 height: 430, // Tinggi gambar pertama
               ),
               Image.asset(
-                'images/oval.png', // Path gambar kedua
+                'assets/images/oval.png', // Path gambar kedua
                 width: 330, // Lebar gambar kedua
                 height: 330, // Tinggi gambar kedua
               ),
               Image.asset(
-                'images/logo besar.png', // Path gambar ketiga
+                'assets/images/logo1.png', // Path gambar ketiga
                 width: 116, // Lebar gambar ketiga
                 height: 158, // Tinggi gambar ketiga
               ),
