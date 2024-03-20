@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/splashscreen/intro02Page.dart';
 
-
 class SplashScreenIntro01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
