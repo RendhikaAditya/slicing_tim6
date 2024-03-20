@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/login/loginPage.dart';
+import 'package:slicing_tim6/widget/custom_button.dart';
 
 
 class LetsYouIn extends StatelessWidget {
@@ -75,35 +76,44 @@ class LetsYouIn extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
+            CustomButton(
+              text: "Sign In with Your Account",
               onPressed: () {
-                // Navigasi ke halaman login saat tombol ditekan
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage()),
                 );
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF0961F5),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Sign in with your account",
-                    style: TextStyle(
-                      fontFamily: 'Mulish',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                      color: Colors.white,
-                      letterSpacing: 0.2,
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Icon(Icons.arrow_forward, color: Colors.white),
-                ],
-              ),
-            ),
+            )
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Navigasi ke halaman login saat tombol ditekan
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => LoginPage()),
+            //     );
+            //   },
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Color(0xFF0961F5),
+            //   ),
+            //   child: Row(
+            //     mainAxisSize: MainAxisSize.min,
+            //     children: [
+            //       Text(
+            //         "Sign in with your account",
+            //         style: TextStyle(
+            //           fontFamily: 'Mulish',
+            //           fontSize: 16,
+            //           fontWeight: FontWeight.w800,
+            //           color: Colors.white,
+            //           letterSpacing: 0.2,
+            //         ),
+            //       ),
+            //       SizedBox(width: 10),
+            //       Icon(Icons.arrow_forward, color: Colors.white),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/widget/custom_text_field.dart';
 import 'package:slicing_tim6/widget/password_text_field.dart';
 
 import '../widget/custom_button.dart';
