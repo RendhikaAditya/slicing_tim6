@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:slicing_tim6/forgot_password/forgot_password.dart';
+// import 'package:slicing_tim6/forgot_password/forgot_password.dart';
 import 'package:slicing_tim6/splashscreen/intro01Page.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (_) => ForgotPassword(),
-        ),
-      );
-    });
+    // Future.delayed(Duration(seconds: 2), () {
+      // Navigator.of(context).pushReplacement(
+        // MaterialPageRoute(
+        //   builder: (_) => ForgotPassword(),
+        // ),
+      // );
+    // });
     return Scaffold(
       backgroundColor: Color(0xFF0961F5), // Warna latar belakang splash screen
       body: GestureDetector(
         onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => SplashScreenIntro01()),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SplashScreenIntro01()),
+          );
         },
         child: Center(
           child: Stack(

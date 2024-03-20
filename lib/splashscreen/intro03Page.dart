@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:slicing_tim6/splashscreen/intro02Page.dart';
+import 'package:slicing_tim6/login/loginPage.dart';
 
 
-class SplashScreenIntro01 extends StatelessWidget {
+class SplashScreenIntro03 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var borderRadius = BorderRadius.circular(4); // Menginisialisasi objek BorderRadius.circular dengan radius 4
@@ -15,7 +15,7 @@ class SplashScreenIntro01 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Online Learning",
+                  "Get Online Certificate",
                   style: TextStyle(
                     fontFamily: 'Jost',
                     fontSize: 24,
@@ -25,7 +25,7 @@ class SplashScreenIntro01 extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "We Provide Classes Online Classes and Pre Recorded Lectures!",
+                  "Analyse your scores and Track your results",
                   style: TextStyle(
                     fontFamily: 'Mulish',
                     fontSize: 14,
@@ -60,11 +60,11 @@ class SplashScreenIntro01 extends StatelessWidget {
             right: 16,
             child: GestureDetector(
               onTap: () {
-                // Handle back button action
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SplashScreenIntro02()),
+                  MaterialPageRoute(builder: (context) => LoginPage()),
                 );
+                // Handle back button action
               },
               child: Container(
                 width: 60,
@@ -79,42 +79,6 @@ class SplashScreenIntro01 extends StatelessWidget {
                   size: 27.3,
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            bottom: 20,
-            left: 16,
-            child: Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 8),
-                  width: 20,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: borderRadius, // Menggunakan objek BorderRadius.circular yang telah diinisialisasi
-                    color: Colors.blue,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 8),
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 8),
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
             ),
           ),
           
