@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0),
         ),
         backgroundColor: Colors.blue,
-        minimumSize: Size(double.infinity, 60),
+        minimumSize: Size(double.infinity, 10),
       ),
       child: Stack(
         alignment: Alignment.center,

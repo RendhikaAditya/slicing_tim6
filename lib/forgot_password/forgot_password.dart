@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:slicing_tim6/forgot_password/otp_page.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -166,7 +167,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   CustomButton(
                     text: 'Continue',
                     onPressed: () {
-                      // Aksi yang ingin dilakukan ketika tombol ditekan
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpPage()));
                     },
                   ),
                 ]
