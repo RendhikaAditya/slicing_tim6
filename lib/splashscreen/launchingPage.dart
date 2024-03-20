@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/splashscreen/intro01Page.dart';
 
-
-
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,13 +14,23 @@ class SplashScreen extends StatelessWidget {
           );
         },
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
+            alignment: Alignment.center,
             children: [
               Image.asset(
-                'images/logo besar.png', // Ganti dengan path gambar logo
-                width: 116, // Lebar gambar
-                height: 158, // Tinggi gambar
+                'images/shape.png', // Path gambar pertama
+                width: 430, // Lebar gambar pertama
+                height: 430, // Tinggi gambar pertama
+              ),
+              Image.asset(
+                'images/oval.png', // Path gambar kedua
+                width: 330, // Lebar gambar kedua
+                height: 330, // Tinggi gambar kedua
+              ),
+              Image.asset(
+                'images/logo besar.png', // Path gambar ketiga
+                width: 116, // Lebar gambar ketiga
+                height: 158, // Tinggi gambar ketiga
               ),
             ],
           ),
