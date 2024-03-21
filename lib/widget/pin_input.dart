@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget buildPinInput(BuildContext context, TextEditingController controller) {
+Widget buildPinInput(BuildContext context, TextEditingController controller,bool _obscureText) {
+
   return Container(
     width: 50,
     height: 50,
@@ -12,6 +13,7 @@ Widget buildPinInput(BuildContext context, TextEditingController controller) {
     ),
     child: TextField(
       controller: controller,
+      obscureText: _obscureText,
       keyboardType: TextInputType.number,
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 20),
