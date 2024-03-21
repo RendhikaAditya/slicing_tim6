@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/Home/homePage.dart';
 import 'package:slicing_tim6/forgot_password/forgot_password.dart';
 import 'package:slicing_tim6/loginRegister/register.dart';
+import 'package:slicing_tim6/widget/bottomNavBar.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 import 'package:slicing_tim6/widget/custom_text_field.dart';
 import 'package:slicing_tim6/widget/password_text_field.dart';
@@ -118,7 +120,10 @@ class LoginPage extends StatelessWidget {
               CustomButton(
                 text: "Sign In",
                 onPressed: () {
-                  
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),//nanti ubah ke page class yang sebenarnya
+                        );
                 },
               ),
               SizedBox(height: 20),
