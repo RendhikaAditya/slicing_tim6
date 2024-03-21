@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
@@ -21,8 +23,11 @@ class _FillProfileState extends State<FillProfile> {
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPhone = TextEditingController();
   String? txtGender;
+  File? _image;
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[100],
@@ -61,22 +66,33 @@ class _FillProfileState extends State<FillProfile> {
                       color: Colors.grey[100], // Ganti warna lingkaran sesuai kebutuhan
                     ),
                     child: Center(
-                      child: Image.asset('assets/images/ic_profile.png'), // Ganti dengan gambar yang diinginkan
+                      child: _image != null
+                          ? CircleAvatar(
+                        radius: 50,
+                        backgroundImage: FileImage(_image!),
+                      )
+                          : Image.asset('assets/images/ic_profile.png'), // Ganti dengan gambar yang diinginkan
                     ),
                   ),
                   Positioned(
                     bottom: 0,
                     right: 0,
-                    child: Container(
-                      padding: EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Icon(
-                        Icons.edit,
-                        color: Colors.blue, // Ganti warna ikon sesuai kebutuhan
-                        size: 20, // Ganti ukuran ikon sesuai kebutuhan
+                    child: GestureDetector(
+                      onTap: () {
+                        print("object");
+                        _FillProfileState();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.edit,
+                          color: Colors.blue, // Ganti warna ikon sesuai kebutuhan
+                          size: 20, // Ganti ukuran ikon sesuai kebutuhan
+                        ),
                       ),
                     ),
                   ),
