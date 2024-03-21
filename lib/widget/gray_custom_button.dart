@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class GrayCustomButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
 
-  CustomButton({required this.text, this.onPressed});
+  GrayCustomButton({required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.grey[200],
             // Menetapkan lebar maksimum sesuai lebar yang tersedia
             minimumSize: Size(constraints.maxWidth, 50),
           ),
@@ -29,27 +29,13 @@ class CustomButton extends StatelessWidget {
                   Text(
                     text,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.grey[850],
                       height: 3,
                       fontSize: 18,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                 ],
-              ),
-              Positioned(
-                right: 0,
-                child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                  child: Icon(
-                    Icons.arrow_forward,
-                    color: Colors.blue,
-                  ),
-                ),
               ),
             ],
           ),

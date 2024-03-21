@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:slicing_tim6/login/letsyouin.dart';
-
-
+import 'package:slicing_tim6/loginRegister/letsyouin.dart';
 
 class SplashScreenIntro03 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var borderRadius = BorderRadius.circular(4); // Menginisialisasi objek BorderRadius.circular dengan radius 4
+    var borderRadius = BorderRadius.circular(4);
     return Scaffold(
       backgroundColor: Color(0xFFF5F9FF),
       body: Stack(
@@ -45,7 +43,7 @@ class SplashScreenIntro03 extends StatelessWidget {
               children: [
                 Text(
                   "Skip",
-                  textAlign: TextAlign.end, // Mengatur teks menjadi rata kanan
+                  textAlign: TextAlign.end,
                   style: TextStyle(
                     fontFamily: 'Jost',
                     fontSize: 16,
@@ -59,27 +57,49 @@ class SplashScreenIntro03 extends StatelessWidget {
           Positioned(
             bottom: 20,
             right: 16,
-            child: GestureDetector(
-              onTap: () {
+            child: ElevatedButton(
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LetsYouIn()),
                 );
-
-                // Handle back button action
               },
-              child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
-                  color: Color(0xFF0961F5),
                 ),
-                child: Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                  size: 27.3,
-                ),
+                minimumSize: Size(200, 60), // Perubahan ukuran button
+                backgroundColor: Color(0xFF0961F5),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Get Started",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    width: 30, // Ukuran lingkaran putih
+                    height: 30, // Ukuran lingkaran putih
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white, // Warna latar belakang lingkaran putih
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.blue, // Warna ikon
+                        size: 20, // Ukuran ikon
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -88,7 +108,6 @@ class SplashScreenIntro03 extends StatelessWidget {
             left: 16,
             child: Row(
               children: [
-               
                 Container(
                   margin: EdgeInsets.only(right: 8),
                   width: 10,
@@ -98,7 +117,6 @@ class SplashScreenIntro03 extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                
                 Container(
                   margin: EdgeInsets.only(right: 8),
                   width: 10,
@@ -108,20 +126,19 @@ class SplashScreenIntro03 extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                 Container(
+                Container(
                   margin: EdgeInsets.only(right: 8),
                   width: 20,
                   height: 10,
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
-                    borderRadius: borderRadius, // Menggunakan objek BorderRadius.circular yang telah diinisialisasi
+                    borderRadius: borderRadius,
                     color: Colors.blue,
                   ),
                 ),
               ],
             ),
           ),
-          
         ],
       ),
     );

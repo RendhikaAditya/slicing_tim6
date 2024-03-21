@@ -2,20 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/fill_profile/set_fingerprint.dart';
 import 'package:slicing_tim6/forgot_password/change_password.dart';
 
 import '../widget/custom_button.dart';
 import '../widget/password_text_field.dart';
 import '../widget/pin_input.dart';
 
-class OtpPage extends StatefulWidget {
-  const OtpPage({super.key});
+class CreatePin extends StatefulWidget {
+  const CreatePin({super.key});
 
   @override
-  State<OtpPage> createState() => _OtpPageState();
+  State<CreatePin> createState() => _CreatePinState();
 }
 
-class _OtpPageState extends State<OtpPage> {
+class _CreatePinState extends State<CreatePin> {
   List<String> pin = ["", "", "", ""];
 
   TextEditingController pinController1 = TextEditingController();
@@ -59,8 +60,8 @@ class _OtpPageState extends State<OtpPage> {
         title: Row(
           children: [
             Text(
-              'Forgot Password',
-              style: TextStyle(fontSize: 18.0),
+              'Create New Pin',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -87,7 +88,7 @@ class _OtpPageState extends State<OtpPage> {
               child: Column(
                   children: [
                     Text(
-                      "Code has been Send to ( +1 ) ***-***-*529",
+                      "Add a Pin Number to Make Your Account more Secure",
                       style: TextStyle(
                         fontSize: 12,
                       ),
@@ -99,42 +100,21 @@ class _OtpPageState extends State<OtpPage> {
                       child:  Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          buildPinInput(context, pinController1, false),
+                          buildPinInput(context, pinController1, true),
                           SizedBox(width: 8),
-                          buildPinInput(context, pinController2, false),
+                          buildPinInput(context, pinController2, true),
                           SizedBox(width: 8),
-                          buildPinInput(context, pinController3, false),
+                          buildPinInput(context, pinController3, true),
                           SizedBox(width: 8),
-                          buildPinInput(context, pinController4, false),
+                          buildPinInput(context, pinController4, true),
                         ],
                       ),
                     ),
                     SizedBox(height: 10,),
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          color: Colors.grey, // Warna abu-abu untuk teks lainnya
-                          fontSize: 16,
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'Resend Code in ',
-                          ),
-                          TextSpan(
-                            text: '$_countdown',
-                            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold), // Warna biru untuk angka
-                          ),
-                          TextSpan(
-                            text: ' s',
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 20,),
                     CustomButton(
-                      text: 'Verify',
+                      text: 'Continue',
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangePassword()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SetFingerprint()));
                       },
                     ),
 

@@ -19,13 +19,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         backgroundColor: Colors.grey[100],
         title: Row(
           children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            SizedBox(width: 8.0), // Atur jarak antara IconButton dan teks
             Text(
               'Forgot Password',
               style: TextStyle(fontSize: 18.0),

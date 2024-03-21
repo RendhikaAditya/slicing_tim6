@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/fill_profile/create_pin.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 import 'package:slicing_tim6/widget/custom_text_field.dart';
 
@@ -9,8 +10,6 @@ import '../widget/custom_date_picker.dart';
 import '../widget/custom_gender_dropdown.dart';
 
 class FillProfile extends StatefulWidget {
-
-
 
   @override
   State<FillProfile> createState() => _FillProfileState();
@@ -140,7 +139,7 @@ class _FillProfileState extends State<FillProfile> {
               CustomButton(
                 text: "Continue",
                 onPressed:(){
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CreatePin()));
                 },
               )
             ],
