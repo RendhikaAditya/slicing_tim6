@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/splashscreen/intro03Page.dart';
 
-
 class SplashScreenIntro02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var borderRadius = BorderRadius.circular(4); // Menginisialisasi objek BorderRadius.circular dengan radius 4
+    var borderRadius = BorderRadius.circular(4);
     return Scaffold(
       backgroundColor: Color(0xFFF5F9FF),
       body: Stack(
@@ -44,7 +43,7 @@ class SplashScreenIntro02 extends StatelessWidget {
               children: [
                 Text(
                   "Skip",
-                  textAlign: TextAlign.end, // Mengatur teks menjadi rata kanan
+                  textAlign: TextAlign.end,
                   style: TextStyle(
                     fontFamily: 'Jost',
                     fontSize: 16,
@@ -58,27 +57,21 @@ class SplashScreenIntro02 extends StatelessWidget {
           Positioned(
             bottom: 20,
             right: 16,
-            child: GestureDetector(
-              onTap: () {
+            child: ElevatedButton(
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => SplashScreenIntro03()),
                 );
-              
-                // Handle back button action
               },
-              child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Color(0xFF0961F5),
-                ),
-                child: Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                  size: 27.3,
-                ),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(), backgroundColor: Color(0xFF0961F5),
+                padding: EdgeInsets.all(20),
+              ),
+              child: Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+                size: 27.3,
               ),
             ),
           ),
@@ -87,7 +80,6 @@ class SplashScreenIntro02 extends StatelessWidget {
             left: 16,
             child: Row(
               children: [
-               
                 Container(
                   margin: EdgeInsets.only(right: 8),
                   width: 10,
@@ -97,13 +89,13 @@ class SplashScreenIntro02 extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                 Container(
+                Container(
                   margin: EdgeInsets.only(right: 8),
                   width: 20,
                   height: 10,
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
-                    borderRadius: borderRadius, // Menggunakan objek BorderRadius.circular yang telah diinisialisasi
+                    borderRadius: borderRadius,
                     color: Colors.blue,
                   ),
                 ),
@@ -119,7 +111,6 @@ class SplashScreenIntro02 extends StatelessWidget {
               ],
             ),
           ),
-          
         ],
       ),
     );
