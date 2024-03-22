@@ -1,73 +1,105 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/inbox/call.dart';
+import 'package:slicing_tim6/inbox/chat.dart';
 
 class Inbox extends StatefulWidget {
-  const Inbox({super.key});
+  const Inbox({Key? key}) : super(key: key);
+
   @override
   State<Inbox> createState() => _InboxState();
 }
 
-class _InboxState extends State<Inbox> {
+class _InboxState extends State<Inbox> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                // implementasi aksi tombol kembali di sini
-              },
-            ),
-            Text("Inbox"),
-            Spacer(),
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                // implementasi aksi pencarian di sini
-              },
-            ),
-          ],
+        backgroundColor: Color(0xFFF5F9FF), // Ubah warna app bar disini
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            // Aksi saat tombol kembali ditekan
+          },
         ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50.0), // Sesuaikan ketinggian sesuai kebutuhan
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        title: Text(
+          'Inbox',
+          style: TextStyle(
+            fontFamily: 'Jost',
+            fontSize: 21,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              // Implementasi aksi pencarian di sini
+            },
+          ),
+        ],
+      ),
+      backgroundColor: Color(0xFFF5F9FF), // Ubah warna background disini
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // implementasi aksi tombol chat di sini
+                  _tabController.animateTo(0);
                 },
-                child: Text('Chat'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(150, 50), // Mengatur ukuran minimum tombol
+                ),
+                child: Text(
+                  'Chat',
+                  style: TextStyle(
+                    fontFamily: 'Mulish',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
-                  // implementasi aksi tombol call di sini
+                  _tabController.animateTo(1);
                 },
-                child: Text('Call'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(150, 50), // Mengatur ukuran minimum tombol
+                ),
+                child: Text(
+                  'Call',
+                  style: TextStyle(
+                    fontFamily: 'Mulish',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
             ],
           ),
-        ),
-      ),
-      body: Column(
-        children: [
           Expanded(
-            child: ListView.builder(
-              itemCount: 5, // Jumlah card yang ingin ditampilkan
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      // Ganti dengan gambar profil sesuai kebutuhan
-                      backgroundImage: AssetImage('assets/images/imageprofile.png'),
-                    ),
-                    title: Text('Title $index'), // Judul
-                    subtitle: Text('Subtitle $index'), // Subjudul
-                  ),
-                );
-              },
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                ChatPage(),
+                CallPage(),
+              ],
             ),
           ),
         ],
