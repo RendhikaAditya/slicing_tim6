@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/widget/widget_course_ongoing.dart';
+import '../model/model_course.dart';
 import 'myCourse.dart'; // Import file MyCourse
 
 class MyCourseOngoing extends StatefulWidget {
@@ -11,119 +13,24 @@ class MyCourseOngoing extends StatefulWidget {
 class _MyCourseOngoingState extends State<MyCourseOngoing> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFF5F9FF),
-        title: Text(
-          'My Courses',
-          style: TextStyle(
-            fontFamily: 'Jost', // Mengubah font
-            fontSize: 21,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Action when back button is pressed
-            Navigator.pop(context); // Navigate back to MyCourse page
-          },
-        ),
-      ),
-      backgroundColor: Color(0xFFF5F9FF),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search for ...',
-                          suffixIcon: Icon(Icons.search, color: Colors.blue),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      // Action when Completed button is pressed
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyCourse()),
-                      ); // Navigate back to MyCourse page
-                    },
-                    child: Text('Completed', style: TextStyle(color: Colors.black)),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Action when Ongoing button is pressed
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF167F71), // Set background color to #167F71
-                    ),
-                    child: Text('Ongoing', style: TextStyle(color: Colors.white)),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              // Content Columns
-              Column(
-                children: [
-                  _buildContent(
-                    "UI/UX Design",
-                    "Intro to UI/UX Design",
-                    "4.4 | 3 Hrs 06 Mins",
-                    'assets/images/imageblack.png',
-                    0.5, // Contoh nilai progress
-                  ),
-                  _buildContent(
-                    "Web Development",
-                    "Wordpress website Dev..",
-                    "3.9 | 1 Hrs 58 Mins",
-                    'assets/images/imageblack.png',
-                    0.8, // Contoh nilai progress
-                  ),
-                  _buildContent(
-                    "UI/UX Design",
-                    "3D Blender and UI/UX",
-                    "3.6 | 2 Hrs 46 Mins",
-                    'assets/images/imageblack.png',
-                    0.3, // Contoh nilai progress
-                  ),
-                  _buildContent(
-                    "Web Development",
-                    "Web Developer conce..",
-                    "4.2 | 2 Hrs 36 Mins",
-                    'assets/images/imageblack.png',
-                    0.6, // Contoh nilai progress
-                  ),
-                  _buildContent(
-                    "Mobile Development",
-                    "Mobile Developer  Concep..",
-                    "4.7 | 3 Hrs 36 Mins",
-                    'assets/images/imageblack.png',
-                    0.9, // Contoh nilai progress
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+    return SizedBox(
+      height: double.infinity,
+      child: ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: courses.length,
+        itemBuilder: (BuildContext context, int index) {
+          Course course = courses[index];
+          return WidgetCourseOngoing(
+            title: course.txtTitle,
+            imagePath: course.urlImage,
+            rating: course.txtRating,
+            subtitle: course.txtCategori,
+            duration: course.txtDuration,
+            courseCompleted: course.txtCompletedTask,
+            courseTotal: course.txtTotalTask,
+            progresValue: (int.parse(course.txtCompletedTask)/int.parse(course.txtTotalTask)),
+          );
+        },
       ),
     );
   }
