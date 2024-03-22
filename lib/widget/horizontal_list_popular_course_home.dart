@@ -2,16 +2,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HorizontalListView extends StatefulWidget {
+class HorizontalListPopularCourse extends StatefulWidget {
   final List<String> categories;
 
-  const HorizontalListView({Key? key, required this.categories}) : super(key: key);
+  const HorizontalListPopularCourse({Key? key, required this.categories}) : super(key: key);
 
   @override
-  _HorizontalListViewState createState() => _HorizontalListViewState();
+  _HorizontalListPopularCourseState createState() => _HorizontalListPopularCourseState();
 }
 
-class _HorizontalListViewState extends State<HorizontalListView> {
+class _HorizontalListPopularCourseState extends State<HorizontalListPopularCourse> {
   int _selectedIndex = -1;
 
   @override
@@ -34,7 +34,7 @@ class _HorizontalListViewState extends State<HorizontalListView> {
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: _selectedIndex == index ? Colors.blue : Colors.grey[200],
+                color: _selectedIndex == index ? Colors.green : Colors.grey[200],
               ),
               child: Text(
                 widget.categories[index],
