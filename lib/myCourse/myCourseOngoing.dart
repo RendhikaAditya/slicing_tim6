@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:slicing_tim6/myCourse/myCourseOngoing.dart'; // Import file MyCourseOngoing
+import 'myCourse.dart'; // Import file MyCourse
 
-class MyCourse extends StatefulWidget {
-  const MyCourse({Key? key}) : super(key: key);
+class MyCourseOngoing extends StatefulWidget {
+  const MyCourseOngoing({Key? key}) : super(key: key);
   @override
-  State<MyCourse> createState() => _MyCourseState();
+  State<MyCourseOngoing> createState() => _MyCourseOngoingState();
 }
 
-class _MyCourseState extends State<MyCourse> {
+class _MyCourseOngoingState extends State<MyCourseOngoing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _MyCourseState extends State<MyCourse> {
         title: Text(
           'My Courses',
           style: TextStyle(
-            fontFamily: 'Jost',
+            fontFamily: 'Jost', // Mengubah font
             fontSize: 21,
             fontWeight: FontWeight.w600,
           ),
@@ -26,6 +26,7 @@ class _MyCourseState extends State<MyCourse> {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             // Action when back button is pressed
+            Navigator.pop(context); // Navigate back to MyCourse page
           },
         ),
       ),
@@ -59,21 +60,21 @@ class _MyCourseState extends State<MyCourse> {
                   ElevatedButton(
                     onPressed: () {
                       // Action when Completed button is pressed
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyCourse()),
+                      ); // Navigate back to MyCourse page
                     },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF167F71)), // Ubah warna tombol Completed
-                    ),
-                    child: Text('Completed', style: TextStyle(color: Colors.white)), // Ubah teks menjadi putih
+                    child: Text('Completed', style: TextStyle(color: Colors.black)),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Action when Ongoing button is pressed
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MyCourseOngoing()),
-                      );
                     },
-                    child: Text('Ongoing', style: TextStyle(color: Colors.black)), // Ubah teks menjadi hitam
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF167F71), // Set background color to #167F71
+                    ),
+                    child: Text('Ongoing', style: TextStyle(color: Colors.white)),
                   ),
                 ],
               ),
@@ -84,44 +85,39 @@ class _MyCourseState extends State<MyCourse> {
               Column(
                 children: [
                   _buildContent(
-                    "Graphic Design",
-                    "Graphic Design Advanced",
-                    "4.2 | 2 Hrs 36 Mins",
+                    "UI/UX Design",
+                    "Intro to UI/UX Design",
+                    "4.4 | 3 Hrs 06 Mins",
                     'assets/images/imageblack.png',
-                    "View Certificate",
-                    'assets/images/iconagree.png', // tambahkan gambar
-                  ),
-                  _buildContent(
-                    "Graphic Design",
-                    "Advance Diploma in Gra..",
-                    "4.7 | 3 Hrs 28 Mins",
-                    'assets/images/imageblack.png',
-                    "View Certificate",
-                    'assets/images/iconagree.png', // tambahkan gambar
-                  ),
-                  _buildContent(
-                    "Digital Marketing",
-                    "Setup your Graphic Des..",
-                    "4.2 | 4 Hrs 05 Mins",
-                    'assets/images/imageblack.png',
-                    "View Certificate",
-                    'assets/images/iconagree.png', // tambahkan gambar
+                    0.5, // Contoh nilai progress
                   ),
                   _buildContent(
                     "Web Development",
-                    "Web Developer Conce..",
+                    "Wordpress website Dev..",
+                    "3.9 | 1 Hrs 58 Mins",
+                    'assets/images/imageblack.png',
+                    0.8, // Contoh nilai progress
+                  ),
+                  _buildContent(
+                    "UI/UX Design",
+                    "3D Blender and UI/UX",
+                    "3.6 | 2 Hrs 46 Mins",
+                    'assets/images/imageblack.png',
+                    0.3, // Contoh nilai progress
+                  ),
+                  _buildContent(
+                    "Web Development",
+                    "Web Developer conce..",
                     "4.2 | 2 Hrs 36 Mins",
                     'assets/images/imageblack.png',
-                    "View Certificate",
-                    'assets/images/iconagree.png', // tambahkan gambar
+                    0.6, // Contoh nilai progress
                   ),
                   _buildContent(
                     "Mobile Development",
                     "Mobile Developer  Concep..",
                     "4.7 | 3 Hrs 36 Mins",
                     'assets/images/imageblack.png',
-                    "View Certificate",
-                    'assets/images/iconagree.png', // tambahkan gambar
+                    0.9, // Contoh nilai progress
                   ),
                 ],
               ),
@@ -137,8 +133,7 @@ class _MyCourseState extends State<MyCourse> {
     String title,
     String rating,
     String imagePath,
-    String sertifikat,
-    String iconPath, // tambahkan parameter untuk path gambar
+    double progressValue, // Ubah tipe parameter
   ) {
     return Card(
       color: Colors.white,
@@ -195,26 +190,33 @@ class _MyCourseState extends State<MyCourse> {
                         ),
                       ],
                     ),
-                    Align(
-                      alignment: Alignment.centerRight, // Rata kanan
-                      child: Text(
-                        sertifikat,
-                        style: TextStyle(
-                          fontFamily: 'Jost', // Mengubah font
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF202244), // Ubah warna
+                    SizedBox(height: 8),
+                    // Menambahkan baris kemajuan (progress bar)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: LinearProgressIndicator(
+                            value: progressValue, // Nilai progress
+                            backgroundColor: Colors.grey[300], // Warna latar belakang
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              progressValue >= 0.5 ? Colors.green : Colors.red, // Warna sesuai dengan nilai progress
+                            ),
+                          ),
                         ),
-                      ),
+                        SizedBox(width: 8), // Spacer
+                        Text(
+                          '${(progressValue * 100).toInt()}%', // Menampilkan persentase
+                          style: TextStyle(
+                            fontFamily: 'Mulish', // Mengubah font
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ),
-              SizedBox(width: 10), // Beri jarak antara teks dan gambar
-              Image.asset(
-                iconPath,
-                width: 28, // Set lebar gambar
-                height: 28, // Set tinggi gambar
               ),
             ],
           ),
@@ -223,3 +225,4 @@ class _MyCourseState extends State<MyCourse> {
     );
   }
 }
+
