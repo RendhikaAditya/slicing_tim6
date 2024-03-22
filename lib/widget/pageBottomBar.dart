@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:slicing_tim6/inbox/inbox.dart';
 import 'package:slicing_tim6/myCourse/myCourse.dart';
 import 'package:slicing_tim6/profile/profile.dart';
-import 'package:slicing_tim6/transaction/transaction.dart';
+import 'package:slicing_tim6/transaction/transaction_page.dart';
 import '../Home/homePage.dart';
 
 class PageBottomBar extends StatefulWidget {
@@ -30,7 +30,7 @@ class _PageBottomBarState extends State<PageBottomBar> with SingleTickerProvider
           HomePage(),
           MyCourse(),
           Inbox(),
-          Transaction(),
+          TransactionPage(),
           Profile(),
         ],
       ),
