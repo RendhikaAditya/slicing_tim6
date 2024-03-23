@@ -36,7 +36,9 @@ class _PageBottomBarState extends State<PageBottomBar> with SingleTickerProvider
       ),
       bottomNavigationBar: BottomAppBar(
         child: TabBar(
+          preferredSize: Size.fromHeight(50.0),
           labelColor: Colors.blue,
+          indicator: BoxDecoration(),
           indicatorColor: Colors.grey[100],
           unselectedLabelColor: Colors.grey,
           controller: _tabController,
