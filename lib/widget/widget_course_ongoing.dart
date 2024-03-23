@@ -51,7 +51,16 @@ class WidgetCourseOngoing extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                     
                       Text(
+                        subtitle,
+                        style: TextStyle(
+                          fontFamily: 'Jost',
+                          fontSize: 12,
+                          color: Colors.orange
+                        ),
+                      ),
+                       Text(
                         title,
                         style: TextStyle(
                           fontFamily: 'Jost',
@@ -60,13 +69,6 @@ class WidgetCourseOngoing extends StatelessWidget {
                         ),
                         maxLines: 2, // Atur maksimum 2 baris
                         overflow: TextOverflow.ellipsis, // Tambahkan elipsis jika melebihi 2 baris
-                      ),
-                      Text(
-                        subtitle,
-                        style: TextStyle(
-                          fontFamily: 'Jost',
-                          fontSize: 12,
-                        ),
                       ),
                       Row(
                         children: [

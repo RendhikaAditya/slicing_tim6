@@ -5,7 +5,6 @@ import 'package:slicing_tim6/inbox/chat.dart';
 
 class Inbox extends StatefulWidget {
   const Inbox({Key? key}) : super(key: key);
-
   @override
   State<Inbox> createState() => _InboxState();
 }
@@ -29,13 +28,7 @@ class _InboxState extends State<Inbox> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFF5F9FF), // Ubah warna app bar disini
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Aksi saat tombol kembali ditekan
-          },
-        ),
+        backgroundColor: Color(0xFFF5F9FF),
         title: Text(
           'Inbox',
           style: TextStyle(
@@ -46,52 +39,43 @@ class _InboxState extends State<Inbox> with SingleTickerProviderStateMixin {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.search), // Icon search
             onPressed: () {
-              // Implementasi aksi pencarian di sini
+              // Aksi yang dilakukan ketika ikon search ditekan
             },
           ),
         ],
       ),
-      backgroundColor: Color(0xFFF5F9FF), // Ubah warna background disini
+      backgroundColor: Color(0xFFF5F9FF),
       body: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  _tabController.animateTo(0);
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(150, 50), // Mengatur ukuran minimum tombol
-                ),
-                child: Text(
-                  'Chat',
-                  style: TextStyle(
-                    fontFamily: 'Mulish',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                TabBar(
+                  controller: _tabController,
+                  labelColor: Colors.white,
+                  unselectedLabelColor: Colors.black,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicator: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Colors.green[700],
                   ),
+                  dividerColor: Color(0xFFF5F9FF),
+                  tabs: [
+                    Tab(
+                      text: 'Chat',
+                    ),
+                    Tab(
+                      text: 'Call',
+                    ),
+                  ],
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _tabController.animateTo(1);
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(150, 50), // Mengatur ukuran minimum tombol
-                ),
-                child: Text(
-                  'Call',
-                  style: TextStyle(
-                    fontFamily: 'Mulish',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           Expanded(
             child: TabBarView(
