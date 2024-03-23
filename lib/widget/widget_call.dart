@@ -5,12 +5,14 @@ import 'package:flutter/widgets.dart';
 class WidgetCall extends StatelessWidget {
   final String image;
   final String name;
-  final String panggilan;
+  final String status;
+  final String tanggal;
 
   const WidgetCall({
     required this.image,
     required this.name,
-    required this.panggilan,
+    required this.status,
+    required this.tanggal
   });
 
   @override
@@ -41,28 +43,42 @@ class WidgetCall extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 4),
-                      Text(
-                        panggilan,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Mulish',
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      Row(
+                        children: [
+                          getStatusIcon(status),
+                          Text(
+                            " $status",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Mulish',
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            " | $tanggal",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Mulish',
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
+
                     ],
                   ),
                 ),
                 SizedBox(width: 12),
-               SizedBox(
-  width: 22.0,
-  height: 22.0,
-  child: Image.asset(
-    'assets/images/icontlp.png',
-    fit: BoxFit.cover,
-  ),
-),
-
+                SizedBox(
+                  width: 22.0,
+                  height: 22.0,
+                  child: Image.asset(
+                    'assets/images/icontlp.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ],
             ),
           ),
@@ -76,4 +92,28 @@ class WidgetCall extends StatelessWidget {
       ],
     );
   }
+}
+Widget getStatusIcon(String status) {
+  IconData iconData;
+  Color iconColor;
+
+  switch (status) {
+    case 'Incoming':
+      iconData = Icons.add_box_outlined;
+      iconColor = Colors.blue;
+      break;
+    case 'Outgoing':
+      iconData = Icons.indeterminate_check_box_outlined;
+      iconColor = Colors.green;
+      break;
+    default:
+      iconData = Icons.highlight_off_outlined;
+      iconColor = Colors.red;
+  }
+
+  return Icon(
+    iconData,
+    color: iconColor,
+    size: 16,
+  );
 }

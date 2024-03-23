@@ -27,7 +27,8 @@ class _CallPageState extends State<CallPage> {
           return WidgetCall(
             name: inbox.txtName,
             image: inbox.urlImage,
-            panggilan: inbox.txtPanggilan,
+            status: inbox.txtStatus,
+            tanggal: inbox.txtTanggal,
            
           );
         },

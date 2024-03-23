@@ -16,7 +16,14 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.grey[100],
-          title: Text('Ini Profile'),
+          title: Text(
+            'Profile',
+            style: TextStyle(
+              fontFamily: 'Jost',
+              fontSize: 21,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ),
         body: Stack(
           children: [
