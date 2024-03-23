@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/web.dart';
+import 'package:slicing_tim6/Home/allCategoriesPage.dart';
+import 'package:slicing_tim6/Home/notificationPage.dart';
+import 'package:slicing_tim6/Home/popularCourse.dart';
+import 'package:slicing_tim6/Home/topMentorPage.dart';
 import 'package:slicing_tim6/model/model_mentor.dart';
 import 'package:slicing_tim6/widget/horizontal_list_categori_home.dart';
 import 'package:slicing_tim6/widget/horizontal_list_popular_course_home.dart';
@@ -74,19 +78,29 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Positioned(
                           right: 0,
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.green,
-                                width: 2,
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        NotificationPage()), // Ganti dengan halaman yang sesuai
+                              );
+                            },
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.green,
+                                  width: 2,
+                                ),
                               ),
-                            ),
-                            child: Icon(
-                              Icons.notifications_outlined,
-                              color: Colors.green,
+                              child: Icon(
+                                Icons.notifications_outlined,
+                                color: Colors.green,
+                              ),
                             ),
                           ),
                         ),
@@ -134,6 +148,14 @@ class _HomePageState extends State<HomePage> {
                         Positioned(
                             right: 0,
                             child: GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          AllCategoriesPage()), // Ganti dengan halaman yang sesuai
+                                );
+                              },
                               child: Text(
                                 "SEE ALL >",
                                 style: TextStyle(
@@ -173,6 +195,14 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                         right: 0,
                         child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      PopularCoursePage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           child: Text(
                             "SEE ALL >",
                             style: TextStyle(
@@ -229,6 +259,14 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                         right: 0,
                         child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      TopMentorPage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           child: Text(
                             "SEE ALL >",
                             style: TextStyle(
