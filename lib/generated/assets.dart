@@ -10,8 +10,12 @@ class Assets {
   static const String imagesIcFingerprint = 'assets/images/ic_fingerprint.png';
   static const String imagesIcProfile = 'assets/images/ic_profile.png';
   static const String imagesIconagree = 'assets/images/iconagree.png';
+  static const String imagesIcontlp = 'assets/images/icontlp.png';
   static const String imagesImageDialogChangePassword = 'assets/images/image_dialog_change_password.png';
   static const String imagesImageDialogFillProfil = 'assets/images/image_dialog_fill_profil.png';
+  static const String imagesImageblack = 'assets/images/imageblack.png';
+  static const String imagesImageprofile = 'assets/images/imageprofile.png';
+  static const String imagesImgCardEmpty = 'assets/images/img_card_empty.png';
   static const String imagesLogo1 = 'assets/images/logo1.png';
   static const String imagesLogo2 = 'assets/images/logo2.png';
   static const String imagesOval = 'assets/images/oval.png';

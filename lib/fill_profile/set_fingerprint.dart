@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:slicing_tim6/forgot_password/otp_page.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 import 'package:slicing_tim6/widget/gray_custom_button.dart';
+import 'package:slicing_tim6/widget/pageBottomBar.dart';
 
 import '../widget/custom_dialog.dart';
 
@@ -80,7 +81,12 @@ class _SetFingerprintState extends State<SetFingerprint> {
                           visible: true,
                         );
                         Future.delayed(Duration(seconds: 2), () {
-                          Navigator.of(context).pop();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    PageBottomBar()), // Ganti dengan halaman yang sesuai
+                          );
                         });
                       },
                     ),

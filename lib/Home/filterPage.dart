@@ -12,6 +12,7 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
+  bool valuePrice = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,17 +183,19 @@ class _FilterPageState extends State<FilterPage> {
                   children: [
                     SizedBox(height: 10,),
                     CustomCheckbox(
-                      value: false,
+                      value: valuePrice,
                       onChanged: (newValue) {
                         // Do something with the new value
+                        valuePrice = !valuePrice;
                         print('New value: $newValue');
                       },
                       text: 'Paid',
                     ),
                     SizedBox(height: 10,),
                     CustomCheckbox(
-                      value: false,
+                      value: !valuePrice,
                       onChanged: (newValue) {
+                        valuePrice = !valuePrice;
                         // Do something with the new value
                         print('New value: $newValue');
                       },
