@@ -65,6 +65,8 @@ flutter:
     - assets/images/shape.png
     - assets/images/oval.png
     - assets/images/
+    - assets/images/categories/
+
 
   
 
