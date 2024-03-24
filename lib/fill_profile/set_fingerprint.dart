@@ -42,12 +42,12 @@ class _SetFingerprintState extends State<SetFingerprint> {
               padding: EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  SizedBox(height: 100,),
-                  Text("Add a Fingerprint to Make your Account \nmore Secure",textAlign: TextAlign.center, style: TextStyle(fontSize: 18),),
+                  SizedBox(height: 20,),
+                  Text("Add a Fingerprint to Make your Account \nmore Secure",textAlign: TextAlign.center, style: TextStyle(fontSize: 14),),
                   SizedBox(height: 50,),
                   Image.asset('assets/images/ic_fingerprint.png'),
                   SizedBox(height: 100,),
-                  Text("Please Put Your Finger on the Fingerprint \nScanner to get Started.",textAlign: TextAlign.center, style: TextStyle(fontSize: 18))
+                  Text("Please Put Your Finger on the Fingerprint \nScanner to get Started.",textAlign: TextAlign.center, style: TextStyle(fontSize: 14))
 
                 ],
               )

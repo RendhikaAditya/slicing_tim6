@@ -1,5 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:slicing_tim6/profile/editProfile.dart';
+import 'package:slicing_tim6/profile/invitedFriendPage.dart';
+import 'package:slicing_tim6/profile/languagePage.dart';
+import 'package:slicing_tim6/profile/notificationSetingPage.dart';
+import 'package:slicing_tim6/profile/paymentOption/paymentOptionPage.dart';
+import 'package:slicing_tim6/profile/securityPage.dart';
+import 'package:slicing_tim6/profile/termConditionPage.dart';
 import 'package:slicing_tim6/widget/widget_profile_menu.dart';
 
 import '../widget/pageBottomBar.dart';
@@ -70,39 +77,92 @@ class _ProfileState extends State<Profile> {
                       SizedBox(height: 10,),
                       WidgetProfileMenu(
                           title: "Edit Profile",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      EditProfilePage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.perm_identity_rounded),
                       WidgetProfileMenu(
                           title: "Payment Option",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      PaymentOptionPage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.account_balance_wallet_outlined),
                       WidgetProfileMenu(
                           title: "Notification",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      NotificationSetingPage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.notifications_none_rounded),
                       WidgetProfileMenu(
                           title: "Security",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SecurityPage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.security_outlined),
                       WidgetProfileMenu(
                           title: "Language",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      LanguagePage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.language_outlined),
                       WidgetProfileMenu(
                           title: "Dark Mode",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+
+                          },
                           icon: Icons.remove_red_eye_outlined),
                       WidgetProfileMenu(
                           title: "Terms & Conditions",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      TermConditionPage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.shield_outlined),
                       WidgetProfileMenu(
                           title: "Help Center",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+
+                          },
                           icon: Icons.help_outline),
                       WidgetProfileMenu(
                           title: "Invite Friend",
-                          navigatorPush: (){},
+                          navigatorPush: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      InvitedFirendPage()), // Ganti dengan halaman yang sesuai
+                            );
+                          },
                           icon: Icons.add_reaction_outlined),
                     ],
                   ),
