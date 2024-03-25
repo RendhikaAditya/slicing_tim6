@@ -4,10 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/web.dart';
+import 'package:slicing_tim6/Course/detailCoursePage.dart';
 import 'package:slicing_tim6/Home/allCategoriesPage.dart';
 import 'package:slicing_tim6/Home/notificationPage.dart';
 import 'package:slicing_tim6/Home/popularCourse.dart';
 import 'package:slicing_tim6/Home/topMentorPage.dart';
+import 'package:slicing_tim6/Mentor/detailMentorPage.dart';
 import 'package:slicing_tim6/model/model_mentor.dart';
 import 'package:slicing_tim6/widget/horizontal_list_categori_home.dart';
 import 'package:slicing_tim6/widget/horizontal_list_popular_course_home.dart';
@@ -229,13 +231,18 @@ class _HomePageState extends State<HomePage> {
                   itemCount: courses.length,
                   itemBuilder: (BuildContext context, int index) {
                     Course course = courses[index];
-                    return WidgetCourseHome(
-                      urlImage: course.urlImage,
-                      txtCategori: course.txtCategori,
-                      txtTitle: course.txtTitle,
-                      txtPrice: course.txtPrice,
-                      txtRating: course.txtRating,
-                      txtStudent: course.txtStudent,
+                    return GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailCoursePage(course: course)));
+                      },
+                      child: WidgetCourseHome(
+                        urlImage: course.urlImage,
+                        txtCategori: course.txtCategori,
+                        txtTitle: course.txtTitle,
+                        txtPrice: course.txtPrice,
+                        txtRating: course.txtRating,
+                        txtStudent: course.txtStudent,
+                      ),
                     );
                   },
                 ),
@@ -298,9 +305,14 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         itemCount: snapshot.data!.length,
                         itemBuilder: (context, index) {
-                          return MentorWidgetHome(
-                            namaUser: snapshot.data![index].name,
-                            imageUrl: snapshot.data![index].imageUrl,
+                          return GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailMentorPage(mentor: snapshot.data![index])));
+                            },
+                            child: MentorWidgetHome(
+                              namaUser: snapshot.data![index].name,
+                              imageUrl: snapshot.data![index].imageUrl,
+                            ),
                           );
                         },
                       ),
