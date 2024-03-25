@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import '../../model/model_course.dart';
 import '../../widget/widget_course_completed.dart';
 
-
 class SearchCoursesPage extends StatefulWidget {
   const SearchCoursesPage({super.key});
 

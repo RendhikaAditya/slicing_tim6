@@ -6,7 +6,6 @@ import '../../model/model_mentor.dart';
 import '../../widget/widget_course_completed.dart';
 import '../../widget/widget_mentor.dart';
 
-
 class SearchMentorsPage extends StatefulWidget {
   const SearchMentorsPage({super.key});
 
