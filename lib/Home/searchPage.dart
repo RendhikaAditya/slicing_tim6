@@ -64,7 +64,9 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
                     onTap: () {
                       setState(() {
                         _onSearch=!_onSearch;
-                        print(_onSearch);
+                        if(!_onSearch){
+                          txtSearch.text = "";
+                        }
                       });
                     },
                     child: Container(
