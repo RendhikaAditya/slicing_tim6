@@ -25,10 +25,11 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
             'Add New Card',
             style: TextStyle(
               fontFamily: 'Jost',
-              fontSize: 21,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
+          backgroundColor: Colors.grey[100],
         ),
         body: Container(
           color: Colors.grey[100],
@@ -86,7 +87,8 @@ class _AddNewCardPageState extends State<AddNewCardPage> {
                                     TextStyle(color: Colors.white, fontSize: 12),
                                   ),
                                 ],
-                              )),
+                              )
+                          ),
                         ],
                       ),
                       SizedBox(height: 20),

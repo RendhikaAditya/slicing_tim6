@@ -17,7 +17,7 @@ class _InvitedFirendPageState extends State<InvitedFirendPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'InvitedFirend',
+          'Invited Firend',
           style: TextStyle(
             fontFamily: 'Jost',
             fontSize: 21,
@@ -77,7 +77,7 @@ class _InvitedFirendPageState extends State<InvitedFirendPage> {
                       SizedBox(width: 20,),
                       Image.asset("assets/images/ic_twiter.png"),
                       SizedBox(width: 20,),
-                      Image.asset("assets/images/ic_fb.png"),
+                      Image.asset("assets/images/ic_gplus.png"),
 
                     ],
                   )
