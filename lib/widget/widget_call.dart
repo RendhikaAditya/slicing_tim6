@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:slicing_tim6/inbox/voiceCall.dart';
+
 
 class WidgetCall extends StatelessWidget {
   final String image;
@@ -71,14 +73,32 @@ class WidgetCall extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 12),
-                SizedBox(
-                  width: 22.0,
-                  height: 22.0,
-                  child: Image.asset(
-                    'assets/images/icontlp.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                // SizedBox(
+                //   width: 22.0,
+                //   height: 22.0,
+                //   child: Image.asset(
+                //     'assets/images/icontlp.png',
+                //     fit: BoxFit.cover,
+                    
+                //   ),
+                // ),
+                GestureDetector(
+  onTap: () {
+    // Navigasi saat gambar ditekan
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => VoiceCall()),
+    );
+  },
+  child: SizedBox(
+    width: 22.0,
+    height: 22.0,
+    child: Image.asset(
+      'assets/images/icontlp.png',
+      fit: BoxFit.cover,
+    ),
+  ),
+)
               ],
             ),
           ),
