@@ -14,12 +14,15 @@ class Assets {
   static const String categories6 = 'assets/images/categories/6.png';
   static const String categories7 = 'assets/images/categories/7.png';
   static const String imagesApple = 'assets/images/apple.png';
+  static const String imagesCall = 'assets/images/call.png';
+  static const String imagesEND = 'assets/images/END.png';
   static const String imagesGoogle = 'assets/images/google.png';
   static const String imagesIcFb = 'assets/images/ic_fb.png';
   static const String imagesIcFingerprint = 'assets/images/ic_fingerprint.png';
   static const String imagesIcGplus = 'assets/images/ic_gplus.png';
   static const String imagesIcProfile = 'assets/images/ic_profile.png';
   static const String imagesIcTwiter = 'assets/images/ic_twiter.png';
+  static const String imagesIcVideo = 'assets/images/ic_video.png';
   static const String imagesIcWa = 'assets/images/ic_wa.png';
   static const String imagesIconagree = 'assets/images/iconagree.png';
   static const String imagesIcontlp = 'assets/images/icontlp.png';
@@ -40,6 +43,8 @@ class Assets {
   static const String imagesSld1 = 'assets/images/sld_1.png';
   static const String imagesSld2 = 'assets/images/sld_2.png';
   static const String imagesSld3 = 'assets/images/sld_3.png';
+  static const String imagesVIDEO = 'assets/images/VIDEO.png';
+  static const String imagesVOICE = 'assets/images/VOICE.png';
   static const String jostJostBlack = 'assets/fonts/Jost/Jost-Black.ttf';
   static const String jostJostBlackItalic = 'assets/fonts/Jost/Jost-BlackItalic.ttf';
   static const String jostJostBold = 'assets/fonts/Jost/Jost-Bold.ttf';
