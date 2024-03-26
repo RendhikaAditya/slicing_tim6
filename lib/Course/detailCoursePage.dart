@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:slicing_tim6/Course/about.dart';
 import 'package:slicing_tim6/Course/curriculcum.dart';
 import 'package:slicing_tim6/model/model_course.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
@@ -35,7 +36,6 @@ class _DetailCoursePageState extends State<DetailCoursePage> with SingleTickerPr
     return Scaffold(
       body: Container(
         color: Colors.grey[100],
-        height: double.infinity,
         child: Stack(
             children:[
               Stack(
@@ -65,133 +65,137 @@ class _DetailCoursePageState extends State<DetailCoursePage> with SingleTickerPr
                   ),
                 ],
               ),
-              Positioned(
-                  top:150,
-                  left: 16,
-                  right:16,
-                  bottom: 0,
-                  child: Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 40),
-                        padding: EdgeInsets.only(top: 50,left: 16, right: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${course.txtCategori}",
-                                  style: TextStyle(
-                                      fontFamily: 'Jost',
-                                      color: Colors.orange,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14,
-                                      decoration: TextDecoration.none
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.star, color: Colors.yellow), // Icon di kiri teks
-                                    SizedBox(width: 3), // Jarak antara icon dan teks
-                                    Text("4.2", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.none)), // Teks
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Text(
-                              "${course.txtTitle}",
-                              style: TextStyle(
-                                  fontFamily: 'Jost',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  decoration: TextDecoration.none
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.videocam_outlined, color: Colors.black), // Icon di kiri teks
-                                    SizedBox(width: 3), // Jarak antara icon dan teks
-                                    Text("${course.txtTotalTask} Class | ", style: TextStyle(fontFamily: 'Jost', color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.none)), // Teks
-                                    SizedBox(width: 3,),
-                                    Icon(Icons.access_time_rounded, color: Colors.black), // Icon di kiri teks
-                                    SizedBox(width: 3), // Jarak antara icon dan teks
-                                    Text("${course.txtDuration}", style: TextStyle(fontFamily: 'Jost', color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.none)), // Teks
-                                  ],
-                                ),
-                                Text(
-                                  "\u0024${course.txtPrice}",
-                                  style: TextStyle(
-                                      fontFamily: 'Jost',
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 28,
-                                      decoration: TextDecoration.none
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10,),
-                            Column(
-                              children: [
-                                TabBar(
-                                  controller: _tabController,
-                                  labelColor: Colors.grey[800],
-                                  unselectedLabelColor: Colors.grey[500],
-                                  indicatorSize: TabBarIndicatorSize.tab,
-                                  indicator: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey[200],
-                                  ),
-                                  dividerColor: Color(0xFFF5F9FF),
-                                  tabs: [
-                                    Tab(
-                                      text: 'About',
-                                    ),
-                                    Tab(
-                                      text: 'Curriculcum',
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Expanded(
-                              child: TabBarView(
-                                controller: _tabController,
+              Container(
+                margin: EdgeInsets.only(top: 150),
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 40),
+                          padding: EdgeInsets.only(top: 50,left: 16, right: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  MyCourseCompleted(),
-                                  Curriculcum(),
+                                  Text(
+                                    "${course.txtCategori}",
+                                    style: TextStyle(
+                                        fontFamily: 'Jost',
+                                        color: Colors.orange,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        decoration: TextDecoration.none
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.star, color: Colors.yellow), // Icon di kiri teks
+                                      SizedBox(width: 3), // Jarak antara icon dan teks
+                                      Text("4.2", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.none)), // Teks
+                                    ],
+                                  ),
                                 ],
                               ),
+                              Text(
+                                "${course.txtTitle}",
+                                style: TextStyle(
+                                    fontFamily: 'Jost',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    decoration: TextDecoration.none
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(Icons.videocam_outlined, color: Colors.black), // Icon di kiri teks
+                                      SizedBox(width: 3), // Jarak antara icon dan teks
+                                      Text("${course.txtTotalTask} Class | ", style: TextStyle(fontFamily: 'Jost', color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.none)), // Teks
+                                      SizedBox(width: 3,),
+                                      Icon(Icons.access_time_rounded, color: Colors.black), // Icon di kiri teks
+                                      SizedBox(width: 3), // Jarak antara icon dan teks
+                                      Text("${course.txtDuration}", style: TextStyle(fontFamily: 'Jost', color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.none)), // Teks
+                                    ],
+                                  ),
+                                  Text(
+                                    "\u0024${course.txtPrice}",
+                                    style: TextStyle(
+                                        fontFamily: 'Jost',
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 28,
+                                        decoration: TextDecoration.none
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 20,),
+                            ],
+                          ),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                            right: 0,
+                            child: Image.asset("assets/images/ic_video.png")
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        TabBar(
+                          controller: _tabController,
+                          labelColor: Colors.grey[800],
+                          unselectedLabelColor: Colors.grey[500],
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          indicator: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: Colors.grey[200],
+                          ),
+                          dividerColor: Color(0xFFF5F9FF),
+                          tabs: [
+                            Tab(
+                              text: 'About',
+                            ),
+                            Tab(
+                              text: 'Curriculcum',
                             ),
                           ],
                         ),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: TabBarView(
+                        controller: _tabController,
+                        children: [
+                          About(kelas: course.txtCategori,),
+                          Curriculcum(),
+                        ],
                       ),
-                      Positioned(
-                          right: 0,
-                          child: Image.asset("assets/images/ic_video.png")
-                      ),
-                      Positioned(
-                          left: 10,
-                          right: 10,
-                          bottom: 10,
-                          child: CustomButton(onPressed:(){},text: "Enroll Course - \u0024${course.txtPrice}",)
-                      ),
-                    ],
-                  )
+                    ),
+                  ],
+                ),
               ),
-
+              Positioned(
+                  left: 10,
+                  right: 10,
+                  bottom: 10,
+                  child: CustomButton(onPressed:(){},text: "Enroll Course - \u0024${course.txtPrice}",)
+              ),
             ]
         ),
       ),
