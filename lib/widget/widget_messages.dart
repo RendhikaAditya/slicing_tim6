@@ -137,15 +137,7 @@ class SendImage extends StatelessWidget {
                 height: 80,
               ),
               SizedBox(height: 5.0),
-              Text(
-                time,
-                style: TextStyle(
-                  fontFamily: 'Mulish',
-                  fontSize: 11.0,
-                  fontWeight: FontWeight.w800,
-                  color: Color(0xFF202244),
-                ),
-              ),
+              
             ],
           ),
           SizedBox(width: 10), // Spacer between images
