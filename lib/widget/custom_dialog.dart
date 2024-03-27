@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 import 'package:slicing_tim6/widget/pageBottomBar.dart';
+import '../payment/paymentPage.dart';
 
 class CustomDialog {
   static Future<void> showCustomDialog({
@@ -11,7 +12,8 @@ class CustomDialog {
     required String image,
     required String title,
     required String deskripsi,
-    required bool visible, // Ubah nama parameter menjadi visible
+    bool visible = true, // Parameter tidak wajib dengan nilai default true
+    VoidCallback? navigator, // Parameter navigator yang tidak wajib
   }) async {
     print(visible);
     return showDialog<void>(
@@ -50,16 +52,14 @@ class CustomDialog {
                 ),
                 SizedBox(height: 20),
                 Visibility(
-                  visible: visible, // Gunakan parameter visible di sini
+                  visible: visible,
                   child: CircularProgressIndicator(),
-                ), // Loading indicator
+                ), // Indikator loading
                 SizedBox(height: 20),
                 Visibility(
-                  visible: !visible, // Gunakan parameter visible di sini
+                  visible: !visible,
                   child: CustomButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: navigator, // Gunakan parameter navigator di sini
                     text: "E-Receipt",
                   ),
                 ),

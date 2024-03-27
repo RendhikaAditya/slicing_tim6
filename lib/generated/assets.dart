@@ -18,11 +18,13 @@ class Assets {
   static const String imagesDokumen = 'assets/images/dokumen.png';
   static const String imagesEND = 'assets/images/END.png';
   static const String imagesGoogle = 'assets/images/google.png';
+  static const String imagesIcBarcode = 'assets/images/ic_barcode.png';
   static const String imagesIcCongratulation = 'assets/images/ic_congratulation.png';
   static const String imagesIcFb = 'assets/images/ic_fb.png';
   static const String imagesIcFingerprint = 'assets/images/ic_fingerprint.png';
   static const String imagesIcGplus = 'assets/images/ic_gplus.png';
   static const String imagesIcProfile = 'assets/images/ic_profile.png';
+  static const String imagesIcReceipt = 'assets/images/ic_receipt.png';
   static const String imagesIcTwiter = 'assets/images/ic_twiter.png';
   static const String imagesIcVideo = 'assets/images/ic_video.png';
   static const String imagesIcWa = 'assets/images/ic_wa.png';

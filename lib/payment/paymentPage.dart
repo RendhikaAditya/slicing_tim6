@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:slicing_tim6/payment/eReceiptPage.dart';
 import 'package:slicing_tim6/profile/paymentOption/addNewCardPage.dart';
 import 'package:slicing_tim6/widget/custom_dialog.dart';
 
@@ -204,6 +205,9 @@ class _PaymentPageState extends State<PaymentPage> {
                       title: 'Congratulations',
                       deskripsi: 'Your Payment is Successfully. Purchase a New Course',
                       visible: false,
+                      navigator: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => EReceiptPage(course: course)));
+                      }
                     );
                   },
                   text: "Enroll Course - \u0024${course.txtPrice}",)
