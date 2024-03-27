@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/model/model_mentor.dart';
+import 'package:slicing_tim6/widget/custom_button.dart';
 
 class MentorProfil extends StatelessWidget {
   final ModelMentor mentor;
@@ -105,6 +106,49 @@ class MentorProfil extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 20),
+                padding:EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  border: Border.all(color: Colors.grey)
+                ),
+                child: Text(
+                    "Follow",
+                  style: TextStyle(
+                    fontFamily: 'Mulish',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 20),
+                padding:EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                child: Text(
+                  "Message",
+                  style: TextStyle(
+                    fontFamily: 'Mulish',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white
+                  ),
+                ),
+              ),
+            ],
+          ),
+
           SizedBox(height: 10),
         ],
       ),

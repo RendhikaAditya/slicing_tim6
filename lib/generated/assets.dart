@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String assetsImagesCertificate = 'assets/images/certificate.png';
+  static const String assetsImagesIcSertif = 'assets/images/ic_sertif.png';
   static const String assetsImagesLogo1 = 'assets/images/logo1.png';
   static const String assetsImagesOval = 'assets/images/oval.png';
   static const String assetsImagesShape = 'assets/images/shape.png';
@@ -15,22 +17,26 @@ class Assets {
   static const String categories7 = 'assets/images/categories/7.png';
   static const String imagesApple = 'assets/images/apple.png';
   static const String imagesCall = 'assets/images/call.png';
+  static const String imagesCertificate = 'assets/images/certificate.png';
   static const String imagesDokumen = 'assets/images/dokumen.png';
   static const String imagesEND = 'assets/images/END.png';
   static const String imagesGoogle = 'assets/images/google.png';
   static const String imagesIcBarcode = 'assets/images/ic_barcode.png';
+  static const String imagesIcCompletedCourse = 'assets/images/ic_completed_course.png';
   static const String imagesIcCongratulation = 'assets/images/ic_congratulation.png';
   static const String imagesIcFb = 'assets/images/ic_fb.png';
   static const String imagesIcFingerprint = 'assets/images/ic_fingerprint.png';
   static const String imagesIcGplus = 'assets/images/ic_gplus.png';
   static const String imagesIcProfile = 'assets/images/ic_profile.png';
   static const String imagesIcReceipt = 'assets/images/ic_receipt.png';
+  static const String imagesIcSertif = 'assets/images/ic_sertif.png';
   static const String imagesIcTwiter = 'assets/images/ic_twiter.png';
   static const String imagesIcVideo = 'assets/images/ic_video.png';
   static const String imagesIcWa = 'assets/images/ic_wa.png';
   static const String imagesIconagree = 'assets/images/iconagree.png';
   static const String imagesIcontlp = 'assets/images/icontlp.png';
-  static const String imagesImage_send = 'assets/images/image_send.png';
+  static const String imagesImagementor = 'assets/images/imagementor.png';
+  static const String imagesImagesend = 'assets/images/imagesend.png';
   static const String imagesImageDialogChangePassword = 'assets/images/image_dialog_change_password.png';
   static const String imagesImageDialogFillProfil = 'assets/images/image_dialog_fill_profil.png';
   static const String imagesImageblack = 'assets/images/imageblack.png';
@@ -50,7 +56,7 @@ class Assets {
   static const String imagesSld3 = 'assets/images/sld_3.png';
   static const String imagesVIDEO = 'assets/images/VIDEO.png';
   static const String imagesVOICE = 'assets/images/VOICE.png';
-  static const String imagesVoice_note = 'assets/images/voice_note.png';
+  static const String imagesVoicenote = 'assets/images/voice note.png';
   static const String jostJostBlack = 'assets/fonts/Jost/Jost-Black.ttf';
   static const String jostJostBlackItalic = 'assets/fonts/Jost/Jost-BlackItalic.ttf';
   static const String jostJostBold = 'assets/fonts/Jost/Jost-Bold.ttf';

@@ -1,8 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/Course/curriculcum.dart';
+import 'package:slicing_tim6/generated/assets.dart';
 import 'package:slicing_tim6/myCourse/curriculumCompleted.dart';
+import 'package:slicing_tim6/myCourse/sertifikat.dart';
+import 'package:slicing_tim6/myCourse/vidioPlay.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 import 'package:slicing_tim6/widget/search_only.dart';
+
+import '../model/model_curriculcum.dart';
+import '../widget/widget_curriculcum_item.dart';
 
 class CompletedLesson extends StatefulWidget {
   const CompletedLesson({Key? key}) : super(key: key);
@@ -41,52 +48,184 @@ class _CompletedLessonState extends State<CompletedLesson>
         ),
       ),
       backgroundColor: Color(0xFFF5F9FF),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          Padding(
+          Container(
             padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SearchOnly(hintText: "3D Design Illustration"),
-                SizedBox(height: 10),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: CurriculcumCompleted(),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SearchOnly(hintText: "3D Design Illustration"),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 20,),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                              fontFamily: 'Jost',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'Section 01 - ',
+                              ),
+                              TextSpan(
+                                text: 'Introducation',
+                                style: TextStyle(
+                                  color: Colors.blue, // Ubah warna teks untuk variabel ini
+                                ),
+                              )
+              
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 340,
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: sampleData.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              CurriculumItem curriculcum = sampleData[index];
+                              return GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPlay()));
+                                },
+                                child: WidgetCurriculcumItem(
+                                  number: curriculcum.number,
+                                  title: curriculcum.title,
+                                  time: curriculcum.time,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 20,),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                              fontFamily: 'Jost',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'Section 02 - ',
+                              ),
+                              TextSpan(
+                                text: 'Graphic design',
+                                style: TextStyle(
+                                  color: Colors.blue, // Ubah warna teks untuk variabel ini
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          height: double.maxFinite,
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: sampleData.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              CurriculumItem curriculcum = sampleData[index];
+                              return WidgetCurriculcumItem(
+                                number: curriculcum.number,
+                                title: curriculcum.title,
+                                time: curriculcum.time,
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 20),
-                CustomButton(
-                  text: "Start Course Again",
-                  onPressed: () {
-                    // Tambahkan fungsi untuk men-download sertifikat
-                  },
-                ),
-              ],
+              
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 20),
-          Text(
-            'Curriculum List', // Ganti dengan teks yang sesuai
-            style: TextStyle(
-              fontFamily: 'Jost',
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10, // Ganti dengan jumlah item yang sesuai
-              itemBuilder: (context, index) {
-                // Ganti ini dengan widget yang sesuai dengan daftar kurikulum
-                return ListTile(
-                  title: Text('Curriculum $index'),
-                );
-              },
-            ),
-          ),
-        ],
+          Positioned(
+            bottom: 16,
+              left: 16,
+              right: 16,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Certifikat()),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.all(Radius.circular(25)),
+                        color: Colors.white70,
+                        border: Border.all(color: Colors.grey)
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                      child: Image.asset(Assets.imagesIcSertif, height:20,),
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  ElevatedButton(
+                    onPressed: (){},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: Colors.blue,
+                      // Menetapkan lebar maksimum sesuai lebar yang tersedia
+                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Start Course Again",
+                              style: TextStyle(
+                                color: Colors.white,
+                                height: 3,
+                                fontSize: 18,
+                              ),
+                            ),
+                            SizedBox(width: 10,),
+                            Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: Icon(
+                                Icons.arrow_forward,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
+          )
+        ]
       ),
     );
   }

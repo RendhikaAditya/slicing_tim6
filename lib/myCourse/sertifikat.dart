@@ -55,7 +55,7 @@ class _CertifikatState extends State<Certifikat>
                     SizedBox(height: 10),
                     Scrollbar(
                       child: Image.asset(
-                        'assets/images/CERTIFICATE.png',
+                        'assets/images/certificate.png',
                         fit: BoxFit.cover,
                       ),
                     ),

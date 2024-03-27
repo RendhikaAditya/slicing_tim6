@@ -2,8 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/Course/curriculcum.dart';
 import 'package:slicing_tim6/myCourse/curriculumCompleted.dart';
+import 'package:slicing_tim6/myCourse/vidioPlay.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
+import 'package:slicing_tim6/widget/pageBottomBar.dart';
 import 'package:slicing_tim6/widget/search_only.dart';
+
+import '../generated/assets.dart';
+import '../model/model_curriculcum.dart';
+import '../widget/custom_dialog.dart';
+import '../widget/widget_curriculcum_item.dart';
 
 class OngoingLesson extends StatefulWidget {
   const OngoingLesson({Key? key}) : super(key: key);
@@ -48,56 +55,135 @@ class _OngoingLessonState extends State<OngoingLesson>
           ),
         ),
         backgroundColor: Color(0xFFF5F9FF),
-        body: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: SearchOnly(
-                hintText: "Search for ...",
-              ),
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(16),
+        body: Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.all(16),
+                child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 10),
-
-                      // CurriculcumCompleted(), // Curriculum is placed here
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: EdgeInsets.all(16),
-                            child: Column(
-                              children: [
-                                SizedBox(height: 10),
-                                Scrollbar(
-                                  child: CurriculcumCompleted(),
+                      SearchOnly(hintText: "3D Design Illustration"),
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Colors.white,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 20,),
+                            RichText(
+                              text: TextSpan(
+                                style: TextStyle(
+                                  fontFamily: 'Jost',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black,
                                 ),
-                                SizedBox(height: 20),
-                              ],
+                                children: [
+                                  TextSpan(
+                                    text: 'Section 01 - ',
+                                  ),
+                                  TextSpan(
+                                    text: 'Introducation',
+                                    style: TextStyle(
+                                      color: Colors.blue, // Ubah warna teks untuk variabel ini
+                                    ),
+                                  )
+
+                                ],
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 340,
+                              child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                itemCount: sampleData.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  CurriculumItem curriculcum = sampleData[index];
+                                  return GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPlay()));
+                                    },
+                                    child: WidgetCurriculcumItem(
+                                      number: curriculcum.number,
+                                      title: curriculcum.title,
+                                      time: curriculcum.time,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            SizedBox(height: 20,),
+                            RichText(
+                              text: TextSpan(
+                                style: TextStyle(
+                                  fontFamily: 'Jost',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Section 02 - ',
+                                  ),
+                                  TextSpan(
+                                    text: 'Graphic design',
+                                    style: TextStyle(
+                                      color: Colors.blue, // Ubah warna teks untuk variabel ini
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: double.infinity,
+                              height: double.maxFinite,
+                              child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                itemCount: sampleData.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  CurriculumItem curriculcum = sampleData[index];
+                                  return WidgetCurriculcumItem(
+                                    number: curriculcum.number,
+                                    title: curriculcum.title,
+                                    time: curriculcum.time,
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: CustomButton(
-                          text: "Continue Courses",
-                          onPressed: () {
-                            // Add onPressed action for the custom button if needed
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 20),
+
                     ],
                   ),
                 ),
               ),
-            ),
-          ],
+              Positioned(
+                  bottom: 16,
+                  left: 16,
+                  right: 16,
+                  child:CustomButton(text: "Continue Course", onPressed: (){
+                    CustomDialog.showDialogCompletedCourse(
+                        navigatorContext: context,
+                        image: Assets.imagesIcCongratulation,
+                        title: 'Course Completed',
+                        deskripsi: 'Complete your Course. Please Write a Review',
+                        visible: false,
+                        navigator: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => PageBottomBar()));
+                        }
+                    );
+
+                  },
+                  )
+
+              )
+            ]
         ),
       ),
     );
