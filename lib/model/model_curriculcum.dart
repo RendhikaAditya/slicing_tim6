@@ -2,6 +2,7 @@ class CurriculumItem {
   final String number;
   final String title;
   final String time;
+  
 
   CurriculumItem({
     required this.number,

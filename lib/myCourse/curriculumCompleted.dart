@@ -1,19 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:slicing_tim6/model/model_curriculcum.dart';
 import 'package:slicing_tim6/widget/widget_curriculcum_item.dart';
 
-import '../model/model_course.dart';
-import '../widget/widget_course_completed.dart';
+class CurriculcumCompleted extends StatelessWidget {
+  const CurriculcumCompleted({Key? key}) : super(key: key);
 
-class Curriculcum extends StatefulWidget {
-  const Curriculcum({super.key});
-
-  @override
-  State<Curriculcum> createState() => _CurriculcumState();
-}
-
-class _CurriculcumState extends State<Curriculcum> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -23,8 +14,8 @@ class _CurriculcumState extends State<Curriculcum> {
         padding: EdgeInsets.only(left: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children:[
-            SizedBox(height: 20,),
+          children: [
+            SizedBox(height: 20),
             RichText(
               text: TextSpan(
                 style: TextStyle(
@@ -38,12 +29,18 @@ class _CurriculcumState extends State<Curriculcum> {
                     text: 'Section 01 - ',
                   ),
                   TextSpan(
-                    text: 'Introducation',
+                    text: 'Introduction ',
                     style: TextStyle(
                       color: Colors.blue, // Ubah warna teks untuk variabel ini
                     ),
-                  )
-                  
+                  ),
+                  TextSpan(
+                    text: '25 Mins',
+                    style: TextStyle(
+                      color: Colors.blue, // Ubah warna teks untuk variabel ini
+                      // textAlign: TextAlign.right, // Tidak perlu
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -54,16 +51,16 @@ class _CurriculcumState extends State<Curriculcum> {
                 scrollDirection: Axis.vertical,
                 itemCount: sampleData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  CurriculumItem curriculcum = sampleData[index];
+                  CurriculumItem curriculum = sampleData[index];
                   return WidgetCurriculcumItem(
-                    number: curriculcum.number,
-                    title: curriculcum.title,
-                    time: curriculcum.time,
+                    number: curriculum.number,
+                    title: curriculum.title,
+                    time: curriculum.time,
                   );
                 },
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             RichText(
               text: TextSpan(
                 style: TextStyle(
@@ -77,11 +74,18 @@ class _CurriculcumState extends State<Curriculcum> {
                     text: 'Section 02 - ',
                   ),
                   TextSpan(
-                    text: 'Graphic design',
+                    text: 'Graphic Design ',
                     style: TextStyle(
                       color: Colors.blue, // Ubah warna teks untuk variabel ini
                     ),
-                  )
+                  ),
+                  TextSpan(
+                    text: '55 Mins',
+                    style: TextStyle(
+                      color: Colors.blue, // Ubah warna teks untuk variabel ini
+                      // textAlign: TextAlign.right, // Tidak perlu
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -92,41 +96,18 @@ class _CurriculcumState extends State<Curriculcum> {
                 scrollDirection: Axis.vertical,
                 itemCount: sampleData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  CurriculumItem curriculcum = sampleData[index];
+                  CurriculumItem curriculum = sampleData[index];
                   return WidgetCurriculcumItem(
-                    number: curriculcum.number,
-                    title: curriculcum.title,
-                    time: curriculcum.time,
+                    number: curriculum.number,
+                    title: curriculum.title,
+                    time: curriculum.time,
                   );
                 },
               ),
             ),
-          ]
+          ],
         ),
       ),
     );
   }
 }
-
-// SizedBox(height: 10,),
-// RichText(
-// text: TextSpan(
-// style: TextStyle(
-// fontFamily: 'Jost',
-// fontSize: 16,
-// fontWeight: FontWeight.w600,
-// color: Colors.black,
-// ),
-// children: [
-// TextSpan(
-// text: 'Section 01 - ',
-// ),
-// TextSpan(
-// text: 'Introducation',
-// style: TextStyle(
-// color: Colors.blue, // Ubah warna teks untuk variabel ini
-// ),
-// )
-// ],
-// ),
-// ),
