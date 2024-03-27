@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:slicing_tim6/widget/custom_button.dart';
+import 'package:slicing_tim6/widget/pageBottomBar.dart';
 
 class CustomDialog {
   static Future<void> showCustomDialog({
@@ -54,27 +56,11 @@ class CustomDialog {
                 SizedBox(height: 20),
                 Visibility(
                   visible: !visible, // Gunakan parameter visible di sini
-                  child: ElevatedButton(
+                  child: CustomButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Text(
-                        'Okay',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
+                    text: "E-Receipt",
                   ),
                 ),
               ],

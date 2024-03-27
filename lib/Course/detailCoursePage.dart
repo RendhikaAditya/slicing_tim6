@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:slicing_tim6/Course/about.dart';
 import 'package:slicing_tim6/Course/curriculcum.dart';
 import 'package:slicing_tim6/model/model_course.dart';
+import 'package:slicing_tim6/payment/paymentPage.dart';
 import 'package:slicing_tim6/widget/custom_button.dart';
 
 import '../myCourse/myCourseCompleted.dart';
@@ -194,7 +195,7 @@ class _DetailCoursePageState extends State<DetailCoursePage> with SingleTickerPr
                   left: 10,
                   right: 10,
                   bottom: 10,
-                  child: CustomButton(onPressed:(){},text: "Enroll Course - \u0024${course.txtPrice}",)
+                  child: CustomButton(onPressed:(){Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage(course: course)));},text: "Enroll Course - \u0024${course.txtPrice}",)
               ),
             ]
         ),

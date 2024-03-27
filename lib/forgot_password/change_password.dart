@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:slicing_tim6/widget/custom_text_field.dart';
 import 'package:slicing_tim6/widget/password_text_field.dart';
 
+import '../loginRegister/loginPage.dart';
 import '../widget/custom_button.dart';
 import '../widget/custom_dialog.dart';
 
@@ -85,14 +86,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                           setState(() {
                             visible = false;
                           });
-
-                          Navigator.of(context).pop();
-                          CustomDialog.showCustomDialog(
-                            navigatorContext: context,
-                            image: 'assets/images/image_dialog_change_password.png',
-                            title: 'Congratulations',
-                            deskripsi: 'Your Account is Ready to Use. You will be redirected to the Home Page in a Few Seconds.',
-                            visible: visible,
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LoginPage()),
                           );
                         });
                       },
