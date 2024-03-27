@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:slicing_tim6/myCourse/ongoingLesson.dart';
 class WidgetCourseOngoing extends StatelessWidget {
   final String subtitle;
   final String title;
@@ -26,6 +27,14 @@ class WidgetCourseOngoing extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+       child: GestureDetector(
+        onTap: () {
+          // Navigasi ke CompletedLesson ketika card diklik
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => OngoingLesson()),
+          );
+        },
       child: Stack(
         children: [
           Container(
@@ -116,6 +125,8 @@ class WidgetCourseOngoing extends StatelessWidget {
           ),
         ],
       ),
+    ),
+    
     );
   }
 }
